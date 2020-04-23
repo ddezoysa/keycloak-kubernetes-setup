@@ -1,5 +1,3 @@
-## https://hub.helm.sh/charts/codecentric/keycloak
-
 init:
   image:
     repository: busybox
@@ -74,6 +72,33 @@ keycloak:
     dbUser: ""
     dbPassword: ""
 
+  ## Ingress configuration.
+  ## ref: https://kubernetes.io/docs/user-guide/ingress/
+  ingress:
+    enabled: true
+    path: /
+    
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+      # ingress.kubernetes.io/affinity: cookie
+
+    labels: {}
+    # key: value
+
+    ## List of hosts for the ingress
+    hosts:
+      - keycloak.mydomain.com
+
+    ## TLS configuration
+    tls: []
+    # - hosts:
+    #     - keycloak.example.com
+    #   secretName: tls-keycloak
+
+  ## OpenShift route configuration.
+  ## ref: https://docs.openshift.com/container-platform/3.11/architecture/networking/routes.html
+  
   hostAliases: []
   #  - ip: "1.2.3.4"
   #    hostnames:
@@ -257,32 +282,7 @@ keycloak:
     # Optional: jGroups port for high availability clustering
     jgroupsPort: 7600
 
-  ## Ingress configuration.
-  ## ref: https://kubernetes.io/docs/user-guide/ingress/
-  ingress:
-    enabled: true
-    path: /
-    
-    annotations: {}
-      # kubernetes.io/ingress.class: nginx
-      # kubernetes.io/tls-acme: "true"
-      # ingress.kubernetes.io/affinity: cookie
-
-    labels: {}
-    # key: value
-
-    ## List of hosts for the ingress
-    hosts:
-      - keycloak.mydomain.com
-
-    ## TLS configuration
-    tls: []
-    # - hosts:
-    #     - keycloak.example.com
-    #   secretName: tls-keycloak
-
-  ## OpenShift route configuration.
-  ## ref: https://docs.openshift.com/container-platform/3.11/architecture/networking/routes.html
+  
   route:
     enabled: false
     path: /
