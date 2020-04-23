@@ -55,8 +55,8 @@ keycloak:
     dbVendor: mysql
 
     ## The following values only apply if "deployPostgres" is set to "false"
-    dbName: keycloak9
-    dbHost: database
+    dbName: keycloak
+    dbHost: database_host
     dbPort: 3306
 
     ## Database Credentials are loaded from a Secret residing in the same Namespace as keycloak.
