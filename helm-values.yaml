@@ -273,7 +273,7 @@ keycloak:
 
     ## List of hosts for the ingress
     hosts:
-      - keycloak9.services.oip.virtusa.dev
+      - keycloak.mydomain.com
 
     ## TLS configuration
     tls: []
