@@ -13,7 +13,7 @@ init:
     #   cpu: "10m"
     #   memory: "32Mi"
 
-clusterDomain: k8s.mydomain.com
+clusterDomain: cluster.local
 
 ## Optionally override the fully qualified name
 # fullnameOverride: keycloak
